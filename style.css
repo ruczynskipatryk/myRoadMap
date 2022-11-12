@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+[data-mode="light"] {
+  --bg-img: linear-gradient(
+    90deg,
+    rgb(244, 241, 241) 1%,
+    rgba(0, 134, 255, 1) 90%
+  );
+  --heading-color: rgb(0, 0, 0);
+  --text-color: #333;
+  --btn-color: #333;
+  --background: rgb(80, 148, 206);
+}
+
+[data-mode="dark"] {
+  --bg-img: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(34, 92, 143) 90%);
+  --heading-color: rgb(193, 235, 248);
+  --text-color: rgb(216, 216, 216);
+  --btn-color: #ddd;
+  --background: rgb(19, 56, 88);
+}
+
+body {
+  height: 100%;
+  background-image: var(--bg-img);
+}
+
+/*light-dark switcher here*/
+.light-dark-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--btn-color);
+}
+
+h1 {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: 50px;
+  text-align: center;
+  font-style: italic;
+  color: var(--heading-color);
+}
+
+h1:hover {
+  background: linear-gradient(
+    90deg,
+    rgb(132, 164, 246) 0%,
+    rgb(69, 205, 255) 33%,
+    rgb(239, 90, 10) 68%,
+    rgb(232, 102, 9) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: 2s;
+  cursor: default;
+}
+
+header p {
+  padding-top: 40px;
+  display: block;
+  margin: 0 auto;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 12px;
+  width: 700px;
+  color: var(--text-color);
+}
+
+.road {
+  font-size: 25px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.road li {
+  list-style: none;
+  font-style: none;
+  text-decoration: none;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+
+/* Colors of the logos by id*/
+
+#tools {
+  color: grey;
+}
+#terminal {
+  color: rgb(55, 132, 171);
+}
+
+#ab {
+  color: rgb(235, 38, 16);
+}
+
+#html {
+  color: rgb(225, 80, 61);
+}
+
+#css {
+  color: rgb(32, 67, 242);
+}
+
+#js {
+  color: yellow;
+}
+
+#bootstrap {
+  color: rgb(227, 46, 46);
+}
+
+#sass {
+  color: rgb(233, 100, 169);
+}
+
+#less {
+  color: rgb(107, 90, 240);
+}
+
+#ts {
+  color: rgb(255, 255, 255);
+  background-color: rgb(45, 111, 224);
+}
+
+#angular {
+  color: red;
+}
+
+#react {
+  color: rgb(65, 216, 242);
+}
+
+#git {
+  color: rgb(69, 68, 68);
+}
+
+#github {
+  color: rgb(69, 68, 68);
+}
+
+#globe {
+  color: rgb(26, 130, 182);
+}
+
+#laptop {
+  color: grey;
+}
+
+#smile {
+  color: rgb(0, 149, 7);
+}
+
+/* bigger icons */
+i:hover {
+  font-size: 40px;
+  transition: 1s;
+}
+
+span:hover {
+  font-size: 40px;
+  transition: 1s;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.container .card {
+  position: relative;
+  width: 220px;
+  height: 250px;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+}
+
+.container .card .percent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.container .card .percent svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform: rotate(270deg);
+}
+
+.container .card .percent svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 2;
+  stroke: #000000;
+  transform: translate(5px, 5px);
+}
+
+.container .card .percent svg circle:nth-child(2) {
+  stroke: var(--clr);
+  stroke-dasharray: 440;
+  stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.dot {
+  position: absolute;
+  inset: 5px;
+  z-index: 10;
+  transform: rotate(calc(3.6deg * var(--num)));
+  animation: animateDot 2s linear forwards;
+}
+
+@keyframes animateDot {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(calc(3.6deg * var(--num)));
+  }
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--clr);
+  box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+}
+
+.number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: 2.5s;
+}
+
+.number h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2.5em;
+}
+
+.number h2 span {
+  font-weight: 300;
+  color: #fff;
+  font-size: 0.5em;
+}
+
+.number p {
+  font-weight: 300;
+  font-size: 0.75em;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.75);
+}
