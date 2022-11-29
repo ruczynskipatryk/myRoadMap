@@ -27,6 +27,7 @@
 
 body {
   height: 100%;
+  width: 100%;
   background-image: var(--bg-img);
 }
 
@@ -89,6 +90,11 @@ header p {
   text-decoration: none;
   padding-bottom: 15px;
   cursor: pointer;
+}
+
+.road li:hover {
+  color: rgb(0, 149, 7);
+  transition: 1s;
 }
 
 /* Colors of the logos by id*/
@@ -294,4 +300,10 @@ span:hover {
   font-size: 0.75em;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.75);
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  p {
+    width: 50%;
+  }
 }
