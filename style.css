@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-[data-mode="light"] {
+[data-mode='light'] {
   --bg-img: linear-gradient(
     90deg,
     rgb(244, 241, 241) 1%,
@@ -17,7 +17,7 @@
   --background: rgb(80, 148, 206);
 }
 
-[data-mode="dark"] {
+[data-mode='dark'] {
   --bg-img: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(34, 92, 143) 90%);
   --heading-color: rgb(193, 235, 248);
   --text-color: rgb(216, 216, 216);
@@ -26,6 +26,8 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   height: 100%;
   width: 100%;
   background-image: var(--bg-img);
@@ -67,14 +69,19 @@ h1:hover {
   cursor: default;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+}
+
 header p {
   padding-top: 40px;
   display: block;
   margin: 0 auto;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
   font-size: 12px;
-  width: 700px;
+  width: 75vw;
   color: var(--text-color);
 }
 
@@ -256,7 +263,7 @@ span:hover {
 }
 
 .dot::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -5px;
   left: 50%;
